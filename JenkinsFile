@@ -20,7 +20,8 @@ pipeline {
             steps {
                 script {
                     def userInput = input message: 'Lanjutkan ke tahap Deploy?', ok: 'Proceed', 
-                                    submitter: 'jenkins'
+                                    submitter: 'jenkins', parameters: [string(defaultValue: 'Proceed', 
+                                    description: '', name: 'User Input')]
 
                     if (userInput == 'Abort') {
                         error('User Aborted the pipeline execution')
