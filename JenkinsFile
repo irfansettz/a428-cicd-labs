@@ -19,11 +19,7 @@ pipeline {
         stage('Manual Approval') {
             steps {
                 script {
-                    def userInput = input message: 'Lanjutkan ke tahap Deploy?'
-
-                    if (userInput == 'Abort') {
-                        error('User Aborted the pipeline execution')
-                    }
+                    input message: 'Lanjutkan ke tahap Deploy?'
                 }
             }
         }
